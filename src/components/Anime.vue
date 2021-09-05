@@ -51,27 +51,11 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import axios from 'axios'
-import useAPI from '../composables/useAPI'
 
 export default defineComponent({
     setup() {
-        const { query, error, loading, res, cleanRes, callAPI } = useAPI(
-            async () => {
-                const result = await axios.get(
-                    `https://kitsu.io/api/edge/anime?filter[text]=${query.value}`
-                )
-
-                return result.data.data[0].attributes.posterImage.medium
-            }
-        )
-        return {
-            query,
-            error,
-            loading,
-            res,
-            callAPI,
-        }
+        // API path
+        // `https://kitsu.io/api/edge/anime?filter[text]=${query.value}`
     },
 })
 </script>

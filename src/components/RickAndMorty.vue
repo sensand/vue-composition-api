@@ -55,23 +55,6 @@
 </template>
 
 <script lang="ts" setup>
-import axios from 'axios'
-import useAPI from '../composables/useAPI'
-import RickMortyQuery from '../schemas/RickMorty'
-
-const { query, error, loading, res, cleanRes, callAPI } = useAPI(async () => {
-    const config = {
-        query: RickMortyQuery,
-        variables: {
-            name: query.value,
-        },
-    }
-
-    const result = await axios.post(
-        'https://rickandmortyapi.com/graphql',
-        config
-    )
-
-    return result.data.data.characters.results[0].image
-})
+// API path
+// 'https://rickandmortyapi.com/graphql'
 </script>
